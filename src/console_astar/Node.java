@@ -31,7 +31,7 @@ public class Node implements Comparable<Node>{
     }
 
     public int getDist() {
-        return distRemaining;
+        return distRemaining + distTraveled;
     }
 
     public int getDistRemaining() {

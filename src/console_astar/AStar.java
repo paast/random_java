@@ -11,6 +11,7 @@ public class AStar {
 
     private int pathLength;
     private int nodesChecked;
+    private int iterations;
 
     private Map map;
     public boolean done;
@@ -26,6 +27,7 @@ public class AStar {
         seen.add(map.getStartNode());
         pathLength = 0;
         nodesChecked = 1;
+        iterations = 0;
     }
 
     /**
@@ -57,6 +59,7 @@ public class AStar {
     }
 
     public void update() {
+        iterations++;
         if (fringe.size() > 0) {
             Node cur = fringe.poll();
             System.out.println("(" + cur.getX() + ", " + cur.getY() + ")");
@@ -100,7 +103,9 @@ public class AStar {
     }
 
     public String stats() {
-        return "Nodes Checked: " + nodesChecked + "\nPath Length: " + pathLength;
+        return "Nodes Checked: " + nodesChecked +
+                "\nPath Length: " + pathLength +
+                "\nIterations: " + iterations;
     }
 
 }

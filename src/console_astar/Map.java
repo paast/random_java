@@ -75,6 +75,11 @@ public class Map {
         drawMap[x][y] = ch;
     }
 
+    public void reDrawSE() {
+        drawMap[startNode.getX()][startNode.getY()] = 'Y';
+        drawMap[endNode.getX()][endNode.getY()] = '!';
+    }
+
     public Node get(int x, int y) {
         if (x < 0 || x > (width - 1) || y < 0 || y > (height - 1)) { return null; }
         return map[x][y];

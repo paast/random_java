@@ -4,11 +4,23 @@ public class Node implements Comparable<Node>{
 
     private int x, y, distTraveled, distRemaining;
 
-    public Node(int x, int y) {
+    private Node prev;
+
+    public Node (int x, int y) {
+        this.x = x;
+        this.y = y;
+        prev = null;
+    }
+
+    public Node(int x, int y, Node prev) {
         this.x = x;
         this.y = y;
         distTraveled = 0;
     }
+
+    public Node getPrev() { return prev; }
+
+    public void setPrev(Node prev) { this.prev = prev; }
 
     public int getX() {
         return x;
@@ -19,7 +31,7 @@ public class Node implements Comparable<Node>{
     }
 
     public int getDist() {
-        return distRemaining + distTraveled;
+        return distRemaining;
     }
 
     public int getDistRemaining() {

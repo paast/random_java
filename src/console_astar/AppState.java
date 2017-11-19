@@ -57,11 +57,11 @@ public class AppState {
 
             aStar.update();
 
-            System.out.print(Utils.clear() + aStar.render());
+            System.out.println(Utils.clear() + map.render());
         }
-        System.out.println("\n\nDONE\n");
-
-        aStar.dump();
+        map.reDrawSE();
+        System.out.println(Utils.clear() + map.render());
+        System.out.println(aStar.stats());
     }
 
 

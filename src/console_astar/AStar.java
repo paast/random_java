@@ -103,9 +103,10 @@ public class AStar {
     }
 
     public String stats() {
-        return "Nodes Checked: " + nodesChecked +
-                "\nPath Length: " + pathLength +
-                "\nIterations: " + iterations;
+        return "STATS:" +
+                "\nNodes Checked/Total Nodes: " + nodesChecked + "/" + map.getNodeCount() +
+                "\nPath Length/Ideal: " + pathLength + "/" + map.idealPathLenght() +
+                "\nIterations/Path Length: " + iterations + "/" + pathLength + " (" + ((float)iterations / (float)pathLength) + ")";
     }
 
 }

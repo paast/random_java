@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Map {
 
-    private int width, height;
+    private int width, height, nodeCount;
 
     private char[][] drawMap;
     private Node[][] map;
@@ -48,15 +48,18 @@ public class Map {
                         drawMap[x][y] = 'S';
                         startNode = new Node(x, y);
                         map[x][y] = startNode;
+                        nodeCount++;
                         break;
                     case ('E'):
                         drawMap[x][y] = 'E';
                         endNode = new Node(x, y);
                         map[x][y] = endNode;
+                        nodeCount++;
                         break;
                     default:
                         drawMap[x][y] = ' ';
                         map[x][y] = new Node(x, y);
+                        nodeCount++;
                         break;
                 }
             }
@@ -100,6 +103,20 @@ public class Map {
         if (adj != null) { nodes.add(adj); }
 
         return nodes;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getNodeCount() { return nodeCount; }
+
+    public int idealPathLenght() {
+        return Math.abs(startNode.getY() - endNode.getY()) + Math.abs(startNode.getX() - endNode.getX());
     }
 
     public void printStats(int tabs) {
